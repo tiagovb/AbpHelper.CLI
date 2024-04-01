@@ -14,5 +14,6 @@
         public const string TargetAppProjectName = nameof(TargetAppProjectName);
         public const string Action = nameof(Action);
         public const string HasDbMigrations = nameof(HasDbMigrations);
+        public const string ReadOnlyAppService = nameof(ReadOnlyAppService);
     }
 }

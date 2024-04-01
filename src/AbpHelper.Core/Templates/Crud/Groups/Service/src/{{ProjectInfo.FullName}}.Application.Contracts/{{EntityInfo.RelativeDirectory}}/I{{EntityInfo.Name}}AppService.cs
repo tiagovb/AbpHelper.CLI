@@ -19,6 +19,17 @@ end ~}}
 /// {{ EntityInfo.Document }}
 /// </summary>
 {{~ end ~}}
+
+{{~ if Option.ReadOnlyAppServices ~}}
+public interface I{{ EntityInfo.Name }}AppService:
+IReadOnlyAppService <
+        {{ DtoInfo.ReadTypeName }}, 
+        {{ EntityInfo.PrimaryKey ?? EntityInfo.CompositeKeyName }}, 
+        {{ TGetListInput }}>
+
+{{~ end ~}}
+
+{{~ if !Option.ReadOnlyAppServices ~}}
 public interface I{{ EntityInfo.Name }}AppService :
     ICrudAppService< 
         {{ DtoInfo.ReadTypeName }}, 
@@ -26,6 +37,7 @@ public interface I{{ EntityInfo.Name }}AppService :
         {{TGetListInput}},
         {{ DtoInfo.CreateTypeName }},
         {{ DtoInfo.UpdateTypeName }}>
+{{~ end ~}}
 {
 
 }
