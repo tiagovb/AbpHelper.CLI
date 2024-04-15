@@ -20,7 +20,7 @@ $(function () {
 {{~ end ~}}
 
     var service = {{ EntityInfo.Namespace + '.' + EntityInfo.Name | abp.camel_case }};
-    var editModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/DetalheModal');
+    var detalheModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/DetalheModal');
 
     var dataTable = $('#{{ EntityInfo.Name }}Table').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
