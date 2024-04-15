@@ -11,9 +11,7 @@ public class Create{{ EntityInfo.Name }}ViewModel
 {
     {{~ for prop in EntityInfo.Properties ~}}
     {{~ if prop | abp.is_ignore_property; continue; end ~}}
-    {{~ if !Option.SkipLocalization ~}}
-    [Display(Name = "{{ EntityInfo.Name + prop.Name}}")]
-    {{~ end ~}}
+    [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
     public {{ prop.Type}} {{ prop.Name }} { get; set; }
     {{~ if !for.last ~}}
 
