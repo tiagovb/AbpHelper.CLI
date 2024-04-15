@@ -3,11 +3,7 @@
     if Option.SkipViewModel
         viewModelType = dtoType
     else
-        if Option.SeparateDto
-            viewModelType = "Edit" + EntityInfo.Name + "ViewModel"
-        else
-            viewModelType = "CreateEdit" + EntityInfo.Name + "ViewModel"
-        end
+        viewModelType = "Detalhe" + EntityInfo.Name + "ViewModel"
     end
 -}}
 using System;
@@ -22,7 +18,7 @@ using {{ ProjectInfo.FullName }}.Web.Pages.{{ pagesNamespace }}{{ EntityInfo.Rel
 
 namespace {{ ProjectInfo.FullName }}.Web.Pages.{{ pagesNamespace }}{{ EntityInfo.RelativeNamespace }}.{{ EntityInfo.Name }};
 
-public class EditModalModel : {{ ProjectInfo.Name }}PageModel
+public class DetalheModalModel : {{ ProjectInfo.Name }}PageModel
 {
     [HiddenInput]
     [BindProperty(SupportsGet = true)]
@@ -33,7 +29,7 @@ public class EditModalModel : {{ ProjectInfo.Name }}PageModel
 
     private readonly I{{ EntityInfo.Name }}AppService _service;
 
-    public EditModalModel(I{{ EntityInfo.Name }}AppService service)
+    public DetalheModalModel(I{{ EntityInfo.Name }}AppService service)
     {
         _service = service;
     }
@@ -44,14 +40,4 @@ public class EditModalModel : {{ ProjectInfo.Name }}PageModel
         ViewModel = ObjectMapper.Map<{{ DtoInfo.ReadTypeName }}, {{ viewModelType }}>(dto);
     }
 
-    public virtual async Task<IActionResult> OnPostAsync()
-    {
-{{~ if Option.SkipViewModel ~}}    
-        await _service.UpdateAsync(Id, ViewModel);
-{{~ else ~}}
-        var dto = ObjectMapper.Map<{{ viewModelType }}, {{ dtoType }}>(ViewModel);
-        await _service.UpdateAsync(Id, dto);
-{{~ end ~}}
-        return NoContent();
-    }
 }

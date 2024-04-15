@@ -104,7 +104,7 @@ namespace EasyAbp.AbpHelper.Core.Steps.Common
                 var targetFilePathNameTemplate = path.Replace(groupDirectory, targetDirectory);
                 if (!string.IsNullOrEmpty(subTargetDirectory))
                 {
-                    targetFilePathNameTemplate = targetFilePathNameTemplate.Replace(subTargetDirectory, string.Empty);
+                    targetFilePathNameTemplate = targetFilePathNameTemplate.Replace(subTargetDirectory + "/", string.Empty).NormalizePath();
                 }
                 var targetFilePathName = _textGenerator.GenerateByTemplateText(targetFilePathNameTemplate, model);
                 if (File.Exists(targetFilePathName) && !overwrite)
