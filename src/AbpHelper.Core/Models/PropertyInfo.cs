@@ -6,13 +6,16 @@
 
         public string Name { get; }
 
+        public string DisplayName { get; }
+
         public string Document { get; set; }
 
-        public PropertyInfo(string type, string name, string document)
+        public PropertyInfo(string type, string name, string document, string displayName)
         {
             Type = type;
             Name = name;
             Document = document;
+            DisplayName = displayName;
         }
     }
 }

@@ -25,6 +25,13 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp
             set => SetState(value);
         }
 
+        private static string? GetDisplayName(AttributeListSyntax? attributeList)
+        {
+            return attributeList?.Attributes
+                .FirstOrDefault(a => a.Name.ToString() == "DisplayName")
+                ?.ArgumentList?.Arguments[0].Expression.ToString().Trim('"');
+        }
+
         protected override async Task<ActivityExecutionResult> OnExecuteAsync(WorkflowExecutionContext context, CancellationToken cancellationToken)
         {
             var entityFile = await context.EvaluateAsync(EntityFile, cancellationToken);
@@ -101,9 +108,12 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp
                     .JoinAsString(";");
 
                 var properties = root.Descendants<PropertyDeclarationSyntax>()
-                        .Select(prop => new PropertyInfo(prop.Type.ToString(), prop.Identifier.ToString(), prop.GetDocument()))
-                        .ToList()
-                    ;
+                    .Select(prop => new PropertyInfo(
+                        prop.Type.ToString(),
+                        prop.Identifier.ToString(),
+                        prop.GetDocument(),
+                    GetDisplayName(prop.AttributeLists.FirstOrDefault()) ?? string.Empty)).ToList();
+
                 var entityInfo = new EntityInfo(@namespace, className, baseType, primaryKey, relativeDirectory, entityDescription);
                 entityInfo.Properties.AddRange(properties);
                 if (keyNames != null)

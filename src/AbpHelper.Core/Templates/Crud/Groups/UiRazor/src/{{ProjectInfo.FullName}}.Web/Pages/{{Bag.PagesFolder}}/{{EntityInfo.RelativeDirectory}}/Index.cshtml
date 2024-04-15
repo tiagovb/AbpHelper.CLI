@@ -24,11 +24,11 @@
 
 @section scripts
 {
-    <abp-script src="/Pages/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/{{ EntityInfo.Name }}/index.js" />
+    <abp-script src="/Pages/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/index.js" />
 }
 @section styles
 {
-    <abp-style src="/Pages/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/{{ EntityInfo.Name }}/index.css"/>
+    <abp-style src="/Pages/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/index.css"/>
 }
 
 <abp-card>
@@ -55,7 +55,7 @@
     <abp-card-body>
         {{~ if !Option.SkipGetListInputDto ~}}
         <abp-row class="mb-3">
-            <a abp-collapse-id="{{ EntityInfo.Name }}Collapse" class="text-secondary">@L["TableFilter"] </a>
+            <a abp-collapse-id="{{ EntityInfo.Name }}Collapse" class="text-secondary">Filtrar</a>
         </abp-row>
         {{~ end ~}}
         {{~ if !Option.SkipGetListInputDto ~}}
