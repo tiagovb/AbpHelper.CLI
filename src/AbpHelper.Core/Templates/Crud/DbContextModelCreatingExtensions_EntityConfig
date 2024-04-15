@@ -8,7 +8,7 @@
             });
 {{~ end ~}}
 {{end}}
-{{~ if ProjectInfo.TemplateType == "Application" ~}}
+{{~ if false && ProjectInfo.TemplateType == "Application" ~}}
 
         builder.Entity<{{ EntityInfo.Name }}>(b =>
         {
@@ -17,7 +17,7 @@
             {{ configCompositeKey }}
             /* Configure more properties here */
         });
-{{~ else if ProjectInfo.TemplateType == "Module" ~}}
+{{~ else if false && ProjectInfo.TemplateType == "Module" ~}}
 
         builder.Entity<{{ EntityInfo.Name }}>(b =>
         {
