@@ -1,13 +1,13 @@
 {{~ if Bag.PagesFolder; pagesFolder = Bag.PagesFolder + "/"; end ~}}
 {{~ if Option.SkipPermissions ~}}
         context.Menu.GetAdministration().AddItem(
-            new ApplicationMenuItem({{ ProjectInfo.Name }}Menus.{{ EntityInfo.Name }}, l["Menu:{{ EntityInfo.Name}}"], "/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/{{ EntityInfo.Name }}")
+            new ApplicationMenuItem({{ ProjectInfo.Name }}Menus.{{ EntityInfo.Name }}, "{{ EntityInfo.Name}}", "/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}")
         );
 {{~ else ~}}
         if (await context.IsGrantedAsync({{ ProjectInfo.Name}}Permissions.{{ EntityInfo.Name }}.Default))
         {
             context.Menu.GetAdministration().AddItem(
-                new ApplicationMenuItem({{ ProjectInfo.Name }}Menus.{{ EntityInfo.Name }}, l["Menu:{{ EntityInfo.Name }}"], "/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/{{ EntityInfo.Name }}")
+                new ApplicationMenuItem({{ ProjectInfo.Name }}Menus.{{ EntityInfo.Name }}, "{{ EntityInfo.Name}}", "/{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}"
             );
         }
 {{~ end ~}}

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.Linq;
 using EasyAbp.AbpHelper.Core.Extensions;
 using EasyAbp.AbpHelper.Core.Generator;
@@ -37,7 +38,7 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp.ModificationCreatorSteps.CSharp
                     ));
                 builders.Add(
                     new InsertionBuilder<CSharpSyntaxNode>(
-                        root => MainMenu(root).GetEndLine(),
+                        root => MainMenu(root).GetEndLine() - 1,  // Adjusted to insert before the return statement
                         addMenuItemText,
                         modifyCondition: root => MainMenu(root).NotContains(addMenuItemText)
                     )
@@ -48,6 +49,7 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp.ModificationCreatorSteps.CSharp
                 string configureMainMenuText = TextGenerator.GenerateByTemplateName(templateDir, "MenuContributor_ConfigureMainMenu", model);
                 string usingForModuleText = TextGenerator.GenerateByTemplateName(templateDir, "MenuContributor_UsingForModule", model);
                 string localizerText = TextGenerator.GenerateByTemplateName(templateDir, "MenuContributor_Localizer", model);
+
                 builders.Add(
                     new ReplacementBuilder<CSharpSyntaxNode>(
                         root => MainMenu(root).GetStartLine(),
@@ -66,13 +68,8 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp.ModificationCreatorSteps.CSharp
                     localizerText,
                     modifyCondition: root => MainMenu(root).NotContains(localizerText)
                 ));
-                builders.Add(new DeletionBuilder<CSharpSyntaxNode>(
-                    root => MainMenu(root).GetEndLine() - 1,
-                    root => MainMenu(root).GetEndLine() - 1,
-                    modifyCondition: root => !root.NotContains("return Task.CompletedTask;")
-                ));
                 builders.Add(new InsertionBuilder<CSharpSyntaxNode>(
-                    root => MainMenu(root).GetEndLine(),
+                    root => MainMenu(root).GetEndLine() - 1,  // Adjusted to insert before the return statement
                     addMenuItemText,
                     modifyCondition: root => MainMenu(root).NotContains(addMenuItemText)
                 ));

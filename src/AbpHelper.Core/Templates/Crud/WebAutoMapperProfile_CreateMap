@@ -16,10 +16,15 @@
 ~}}
         CreateMap<{{ DtoInfo.ReadTypeName }}, {{ DtoInfo.CreateTypeName }}>();
 {{~
-        else
+        else if !Option.ReadOnlyAppServices
 ~}}
         CreateMap<{{ DtoInfo.ReadTypeName }}, CreateEdit{{ EntityInfo.Name }}ViewModel>();
         CreateMap<CreateEdit{{ EntityInfo.Name }}ViewModel, {{ DtoInfo.CreateTypeName }}>();
+{{~
+        else
+~}}
+        CreateMap<{{ DtoInfo.ReadTypeName }}, Detalhe{{ EntityInfo.Name }}ViewModel>();
+        CreateMap<Detalhe{{ EntityInfo.Name }}ViewModel, {{ DtoInfo.CreateTypeName }}>();
 {{~
         end
     end
