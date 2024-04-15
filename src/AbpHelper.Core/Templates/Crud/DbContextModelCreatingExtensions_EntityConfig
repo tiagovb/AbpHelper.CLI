@@ -27,3 +27,4 @@
             /* Configure more properties here */
         });
 {{~ end ~}}
+        modelBuilder.ApplyConfiguration(new {{ EntityInfo.Name }}Configuration());
