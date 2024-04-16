@@ -9,8 +9,8 @@ $(function () {
     //After abp v7.2 use dynamicForm 'column-size' instead of the following settings
     //$('#{{ EntityInfo.Name }}Collapse div').addClass('col-sm-3').parent().addClass('row');
 
-    var getFilter = function () {
-        var input = {};
+    const getFilter = function () {
+        const input = {};
         $("#{{ EntityInfo.Name }}Filter")
             .serializeArray()
             .forEach(function (data) {
@@ -22,13 +22,13 @@ $(function () {
     };
 {{~ end ~}}
 
-    var l = abp.localization.getResource('{{ ProjectInfo.Name }}');
+    const l = abp.localization.getResource('{{ ProjectInfo.Name }}');
 
-    var service = {{ EntityInfo.Namespace + '.' + EntityInfo.Name | abp.camel_case }};
-    var createModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/CreateModal');
-    var editModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/EditModal');
+    const service = {{ EntityInfo.Namespace + '.' + EntityInfo.Name | abp.camel_case }};
+    const createModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/CreateModal');
+    const editModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/EditModal');
 
-    var dataTable = $('#{{ EntityInfo.Name }}Table').DataTable(abp.libs.datatables.normalizeConfiguration({
+    const dataTable = $('#{{ EntityInfo.Name }}Table').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
         paging: true,

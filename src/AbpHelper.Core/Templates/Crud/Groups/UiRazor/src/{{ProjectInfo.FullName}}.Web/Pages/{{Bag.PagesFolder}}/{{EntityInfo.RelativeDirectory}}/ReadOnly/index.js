@@ -6,8 +6,8 @@ $(function () {
         dataTable.ajax.reload();
     });
 
-    var getFilter = function () {
-        var input = {};
+    const getFilter = function () {
+        const input = {};
         $("#{{ EntityInfo.Name }}Filter")
             .serializeArray()
             .forEach(function (data) {
@@ -19,10 +19,10 @@ $(function () {
     };
 {{~ end ~}}
 
-    var service = {{ EntityInfo.Namespace + '.' + EntityInfo.Name | abp.camel_case }};
-    var detalheModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/DetalheModal');
+    const service = {{ EntityInfo.Namespace + '.' + EntityInfo.Name | abp.camel_case }};
+    const detalheModal = new abp.ModalManager(abp.appPath + '{{ pagesFolder }}{{ EntityInfo.RelativeDirectory }}/DetalheModal');
 
-    var dataTable = $('#{{ EntityInfo.Name }}Table').DataTable(abp.libs.datatables.normalizeConfiguration({
+    const dataTable = $('#{{ EntityInfo.Name }}Table').DataTable(abp.libs.datatables.normalizeConfiguration({
         processing: true,
         serverSide: true,
         paging: true,
