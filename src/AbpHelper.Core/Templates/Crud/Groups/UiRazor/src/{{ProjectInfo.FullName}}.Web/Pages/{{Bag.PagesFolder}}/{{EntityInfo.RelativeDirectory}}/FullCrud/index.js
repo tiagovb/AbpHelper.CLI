@@ -51,7 +51,7 @@ $(function () {
 {{~ if EntityInfo.CompositeKeyName ~}}
                                     editModal.open({
     {{~ for prop in EntityInfo.CompositeKeys ~}}
-                                        {{ prop.Name | abp.camel_case}}: data.record.{{ prop.Name | abp.camel_case}}{{if !for.last}},{{end}}
+                                    {{ "'"}}{{ EntityInfo.CompositeKeyName }}{{ "."}}{{ prop.Name | abp.camel_case }}{{ "'"}}: data.record.{{ prop.Name | abp.camel_case }}{{ if !for.last }}, {{ end }}
     {{~ end ~}}
                                     });
 {{~ else ~}}
@@ -68,15 +68,7 @@ $(function () {
                                     return l('{{ EntityInfo.Name }}DeletionConfirmationMessage', data.record.id);
                                 },
                                 action: function (data) {
-{{~ if EntityInfo.CompositeKeyName ~}}
-                                    service.delete({
-    {{~ for prop in EntityInfo.CompositeKeys ~}}
-                                            {{ prop.Name | abp.camel_case}}: data.record.{{ prop.Name | abp.camel_case}}{{if !for.last}},{{end}}
-    {{~ end ~}}
-                                        })
-{{~ else ~}}
                                     service.delete(data.record.id)
-{{~ end ~}}
                                         .then(function () {
                                             abp.notify.info(l('SuccessfullyDeleted'));
                                             dataTable.ajax.reload();

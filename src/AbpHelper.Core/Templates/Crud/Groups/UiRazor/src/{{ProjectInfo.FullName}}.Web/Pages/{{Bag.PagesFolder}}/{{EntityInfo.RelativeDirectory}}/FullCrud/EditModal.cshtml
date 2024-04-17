@@ -10,7 +10,7 @@
 }
 <abp-dynamic-form abp-model="ViewModel" data-ajaxForm="true" asp-page="EditModal">
     <abp-modal>
-        <abp-modal-header title="@L["Edit{{ EntityInfo.Name }}"].Value"></abp-modal-header>
+        <abp-modal-header title="Alterar {{ EntityInfo.Name }}"></abp-modal-header>
         <abp-modal-body>
         {{~ if EntityInfo.CompositeKeyName ~}}
             {{~ for prop in EntityInfo.CompositeKeys ~}}

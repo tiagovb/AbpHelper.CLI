@@ -32,6 +32,30 @@ $(function () {
         order: [[0, "asc"]],
         ajax: abp.libs.datatables.createAjax(service.getList{{- if !Option.SkipGetListInputDto;",getFilter"; end-}}),
         columnDefs: [
+                        {
+                rowAction: {
+                    items:
+                        [
+                            {
+                                icon: 'eye',
+{{~ if !Option.SkipPermissions ~}}
+                                visible: abp.auth.isGranted('{{ ProjectInfo.Name }}.{{ EntityInfo.Name }}.Update'),
+{{~ end ~}}
+                                action: function (data) {
+{{~ if EntityInfo.CompositeKeyName ~}}
+                                    detalheModal.open({
+    {{~ for prop in EntityInfo.CompositeKeys ~}}
+                                    {{ "'"}}{{ EntityInfo.CompositeKeyName }}{{"."}}{{ prop.Name | abp.camel_case}}{{"'"}}: data.record.{{ prop.Name | abp.camel_case}}{{if !for.last}},{{end}}
+    {{~ end ~}}
+                                    });
+{{~ else ~}}
+                                    detalheModal.open({ id: data.record.id });
+{{~ end ~}}
+                                }
+                            },
+                        ]
+                }
+            },
             {{~ for prop in EntityInfo.Properties ~}}
             {{~ if prop | abp.is_ignore_property || string.starts_with prop.Type "List<" || string.starts_with prop.Type "IList"; continue; end ~}}
             {
