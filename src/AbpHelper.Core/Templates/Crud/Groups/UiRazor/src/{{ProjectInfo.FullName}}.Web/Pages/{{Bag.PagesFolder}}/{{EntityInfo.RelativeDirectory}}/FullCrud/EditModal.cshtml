@@ -12,7 +12,7 @@
     <abp-modal>
         <abp-modal-header title="Alterar {{ EntityInfo.Name }}"></abp-modal-header>
         <abp-modal-body>
-        {{~ if EntityInfo.CompositeKeyName ~}}
+        {{~ if EntityInfo.CompositeKeys.Count > 1 ~}}
             {{~ for prop in EntityInfo.CompositeKeys ~}}
             <abp-input type="hidden" asp-for="Id.{{ prop.Name }}" />
             {{~ end ~}}

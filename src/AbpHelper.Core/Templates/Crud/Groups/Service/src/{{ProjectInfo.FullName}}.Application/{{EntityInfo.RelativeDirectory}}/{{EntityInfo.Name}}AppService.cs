@@ -14,7 +14,7 @@ using System;
 {{~ if Option.ReadOnlyAppServices
     crudClassName = "BaseReadOnlyAppService"
 else
-    crudClassName = "BaseAppService"
+    crudClassName = "AbstractKeyCrudAppService"
 end ~}}
 {{~ if EntityInfo.CompositeKeyName || !Option.SkipGetListInputDto~}}
 using System.Linq;
@@ -81,14 +81,17 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     {
     }
     {{~ end ~}}
-    {{~ if EntityInfo.CompositeKeyName ~}}
 
     {{~ if !Option.ReadOnlyAppServices ~}}
     protected override Task DeleteByIdAsync({{ EntityInfo.CompositeKeyName }} id)
     {
         return {{ repositoryName }}.DeleteAsync(e =>
+        {{~ if EntityInfo.CompositeKeys.Count > 1 ~}}
         {{~ for prop in EntityInfo.CompositeKeys ~}}
             e.{{ prop.Name }} == id.{{ prop.Name}}{{ if !for.last}} &&{{end}}
+        {{~ end ~}}
+        {{~ else ~}}
+            e.{{ EntityInfo.CompositeKeys[0].Name }} == id
         {{~ end ~}}
         );
     }
@@ -98,8 +101,12 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     {
         return await AsyncExecuter.FirstOrDefaultAsync(
             (await {{ repositoryName }}.WithDetailsAsync()).Where(e =>
+            {{~ if EntityInfo.CompositeKeys.Count > 1 ~}}
             {{~ for prop in EntityInfo.CompositeKeys ~}}
                 e.{{ prop.Name }} == id.{{ prop.Name}}{{ if !for.last}} &&{{end}}
+            {{~ end ~}}
+            {{~ else ~}}
+                e.{{ EntityInfo.CompositeKeys[0].Name }} == id
             {{~ end ~}}
             ));
     }
@@ -108,7 +115,6 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     {
         return query.OrderBy(e => e.{{ EntityInfo.CompositeKeys[0].Name }});
     }
-    {{~ end ~}}
 
     {{~ if !Option.SkipGetListInputDto ~}}
     protected override async Task<IQueryable<{{ EntityInfo.Name }}>> CreateFilteredQueryAsync({{ EntityInfo.Name }}GetListInput input)

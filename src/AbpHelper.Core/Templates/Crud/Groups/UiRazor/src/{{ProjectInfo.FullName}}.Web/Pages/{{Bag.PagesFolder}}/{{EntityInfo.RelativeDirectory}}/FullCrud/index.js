@@ -48,7 +48,7 @@ $(function () {
                                 visible: abp.auth.isGranted('{{ ProjectInfo.Name }}.{{ EntityInfo.Name }}.Update'),
 {{~ end ~}}
                                 action: function (data) {
-{{~ if EntityInfo.CompositeKeyName ~}}
+{{~ if EntityInfo.CompositeKeys.Count > 1 ~}}
                                     editModal.open({
     {{~ for prop in EntityInfo.CompositeKeys ~}}
                                     {{ "'"}}{{ EntityInfo.CompositeKeyName }}{{ "."}}{{ prop.Name | abp.camel_case }}{{ "'"}}: data.record.{{ prop.Name | abp.camel_case }}{{ if !for.last }}, {{ end }}

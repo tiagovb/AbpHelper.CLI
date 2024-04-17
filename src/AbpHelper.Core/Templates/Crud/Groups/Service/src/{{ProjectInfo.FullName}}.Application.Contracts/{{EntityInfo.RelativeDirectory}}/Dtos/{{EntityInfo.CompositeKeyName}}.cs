@@ -1,4 +1,4 @@
-{{- SKIP_GENERATE = EntityInfo.CompositeKeyName == null -}}
+{{- SKIP_GENERATE = EntityInfo.PrimaryKey || EntityInfo.CompositeKeys.Count > 1 -}}
 using System;
 
 namespace {{ EntityInfo.Namespace }}.Dtos;

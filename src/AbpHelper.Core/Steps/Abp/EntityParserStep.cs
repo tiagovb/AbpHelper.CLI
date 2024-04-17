@@ -114,13 +114,14 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp
                         prop.GetDocument(),
                     GetDisplayName(prop.AttributeLists.FirstOrDefault()) ?? string.Empty)).ToList();
 
+                primaryKey = primaryKey ?? properties.FirstOrDefault(p => p.Name == keyNames?.FirstOrDefault()).Type!;
+
                 var entityInfo = new EntityInfo(@namespace, className, baseType, primaryKey, relativeDirectory, entityDescription);
                 entityInfo.Properties.AddRange(properties);
                 if (keyNames != null)
                 {
-                    entityInfo.CompositeKeyName = $"{className}Key";
-                    entityInfo.CompositeKeys.AddRange(
-                        keyNames.Select(k => properties.Single(prop => prop.Name == k)));
+                    entityInfo.CompositeKeyName = (keyNames?.Count() > 1) ? $"{className}Key" : primaryKey;
+                    entityInfo.CompositeKeys.AddRange(keyNames.Select(k => properties.Single(prop => prop.Name == k)));
                 }
 
                 context.SetLastResult(entityInfo);
