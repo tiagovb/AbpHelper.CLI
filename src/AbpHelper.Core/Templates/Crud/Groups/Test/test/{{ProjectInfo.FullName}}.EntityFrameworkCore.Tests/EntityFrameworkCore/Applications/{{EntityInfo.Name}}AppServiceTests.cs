@@ -17,7 +17,7 @@ public class {{ EntityInfo.Name }}AppServiceTests : BaseAppServiceTests<{{ Proje
         _appService = GetRequiredService<I{{ EntityInfo.Name }}AppService>();
         _repository = GetRequiredService<I{{ EntityInfo.Name }}Repository>();
         
-        //Usando repositorio, insira registros no BD para usa-los nos testes.
+        //Usando repositório, insira registros no BD para usá-los nos testes.
         var {{ EntityInfo.Name | abp.camel_case }}1 = new {{ EntityInfo.Name }}
         {
             //Coloque valores das propriedades Exemplo:

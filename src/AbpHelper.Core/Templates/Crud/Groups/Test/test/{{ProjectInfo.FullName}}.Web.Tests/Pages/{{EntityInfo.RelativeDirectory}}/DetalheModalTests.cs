@@ -36,10 +36,10 @@ public class DetalheModalTests : {{ ProjectInfo.Name }}WebTestBase
         response.ShouldNotBeNull();
         responseString.ShouldNotBeNull();
 
-        //Verifique se o metodo de busca retorna statusCode diferente de 200 se nao achar
+        //Verifique se o método de busca retorna statusCode diferente de 200 se não achar.
         response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
 
-        /*utilize codigo para buscar elementos na resposta obtida para garantir que carregou corretamente. Exemplo:
+        /* Utilize código para buscar elementos na resposta obtida para garantir que carregou corretamente. Exemplo:
          * 
          * 
             var htmlDocument = new HtmlDocument();

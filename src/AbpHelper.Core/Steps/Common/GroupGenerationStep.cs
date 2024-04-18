@@ -113,7 +113,8 @@ namespace EasyAbp.AbpHelper.Core.Steps.Common
                     continue;
                 }
 
-                var templateText = await file.ReadAsStringAsync();
+                //var templateText = await file.ReadAsStringAsync();
+                var templateText = await new StreamReader(file.CreateReadStream(), System.Text.Encoding.UTF8).ReadToEndAsync();
                 var contents = _textGenerator.GenerateByTemplateText(templateText, model, out TemplateContext context);
 
                 context.CurrentGlobal.TryGetValue(SkipGenerate, out object value);
@@ -127,7 +128,7 @@ namespace EasyAbp.AbpHelper.Core.Steps.Common
                 if (!Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
 
-                await File.WriteAllTextAsync(targetFilePathName, contents);
+                await File.WriteAllTextAsync(targetFilePathName, contents, System.Text.Encoding.UTF8);
                 Logger.LogInformation($"File {targetFilePathName} successfully generated.");
             }
         }
