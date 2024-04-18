@@ -14,7 +14,7 @@ using System;
 {{~ if Option.ReadOnlyAppServices
     crudClassName = "BaseReadOnlyAppService"
 else
-    crudClassName = "AbstractKeyCrudAppService"
+    crudClassName = "BaseCrudAppService"
 end ~}}
 {{~ if EntityInfo.CompositeKeyName || !Option.SkipGetListInputDto~}}
 using System.Linq;
@@ -48,18 +48,13 @@ end ~}}
 /// {{ EntityInfo.Document }}
 /// </summary>
 {{~ end ~}}
-
 {{~ if !Option.ReadOnlyAppServices ~}}
-
 public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.Name }}, {{ DtoInfo.ReadTypeName }}, {{ EntityInfo.PrimaryKey ?? EntityInfo.CompositeKeyName }}, {{ TGetListInput}}, {{ DtoInfo.CreateTypeName }}, {{ DtoInfo.UpdateTypeName }}>,
     I{{ EntityInfo.Name }}AppService
-
 {{~ end ~}}
-
 {{~ if Option.ReadOnlyAppServices ~}}
 public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.Name }}, {{ DtoInfo.ReadTypeName }}, {{ EntityInfo.PrimaryKey ?? EntityInfo.CompositeKeyName }}, {{ TGetListInput}}>, I{{ EntityInfo.Name }}AppService
 {{~ end ~}}
-
 {
     {{~ if !Option.SkipPermissions ~}}
     protected override string GetPolicyName { get; set; } = {{ permissionNamesPrefix }}.Default;
@@ -68,17 +63,26 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     protected override string UpdatePolicyName { get; set; } = {{ permissionNamesPrefix }}.Update;
     protected override string DeletePolicyName { get; set; } = {{ permissionNamesPrefix }}.Delete;
     {{~ end ~}}
-
+    
+    {{~ if !Option.ReadOnlyAppServices ~}}
+    private readonly I{{ EntityInfo.Name }}Manager _manager;
+    {{~ end ~}}
     {{~ if !Option.SkipCustomRepository ~}}
     private readonly {{ repositoryType }} {{ repositoryName }};
 
-    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository) : base(repository)
+    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices ~}},manager{{~ end ~}})
     {
         {{ repositoryName }} = repository;
+        {{~ if !Option.ReadOnlyAppServices ~}}
+        _manager = manager;
+        {{~ end ~}}
     }
     {{~ else ~}}
-    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository) : base(repository)
+    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices ~}},manager{{~ end ~}})
     {
+        {{~ if !Option.ReadOnlyAppServices ~}}
+        _manager = manager;
+        {{~ end ~}}
     }
     {{~ end ~}}
 

@@ -43,7 +43,7 @@ $(function () {
                     items:
                         [
                             {
-                                text: l('Edit'),
+                                text: "Alterar",
 {{~ if !Option.SkipPermissions ~}}
                                 visible: abp.auth.isGranted('{{ ProjectInfo.Name }}.{{ EntityInfo.Name }}.Update'),
 {{~ end ~}}
@@ -60,12 +60,12 @@ $(function () {
                                 }
                             },
                             {
-                                text: l('Delete'),
+                                text: "Excluir",
 {{~ if !Option.SkipPermissions ~}}
                                 visible: abp.auth.isGranted('{{ ProjectInfo.Name }}.{{ EntityInfo.Name }}.Delete'),
 {{~ end ~}}
                                 confirmMessage: function (data) {
-                                    return l('{{ EntityInfo.Name }}DeletionConfirmationMessage', data.record.id);
+                                    return "Tem certeza de que deseja excluir?"
                                 },
                                 action: function (data) {
                                     service.delete(data.record.id)
