@@ -55,5 +55,8 @@ This argument takes effect only if '--skip-db-migrations' is NOT specified.";
 
         [Option("read-only-app-services", Description = "App services somente de leitura")]
         public bool ReadOnlyAppServices { get; set; }
+
+        [Option("domain-manager", Description = "Criar e usar Entidade Domain Manager")]
+        public bool DomainManager { get; set; }
     }
 }

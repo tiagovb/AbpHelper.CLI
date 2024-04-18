@@ -13,8 +13,10 @@ end ~}}
 using System;
 {{~ if Option.ReadOnlyAppServices
     crudClassName = "BaseReadOnlyAppService"
-else
+else if  Option.DomainManager
     crudClassName = "BaseCrudAppService"
+else
+    crudClassName = "AbstractKeyCrudAppService"
 end ~}}
 {{~ if EntityInfo.CompositeKeyName || !Option.SkipGetListInputDto~}}
 using System.Linq;
@@ -64,23 +66,23 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     protected override string DeletePolicyName { get; set; } = {{ permissionNamesPrefix }}.Delete;
     {{~ end ~}}
     
-    {{~ if !Option.ReadOnlyAppServices ~}}
+    {{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}}
     private readonly I{{ EntityInfo.Name }}Manager _manager;
     {{~ end ~}}
     {{~ if !Option.SkipCustomRepository ~}}
     private readonly {{ repositoryType }} {{ repositoryName }};
 
-    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices ~}},manager{{~ end ~}})
+    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},manager{{~ end ~}})
     {
         {{ repositoryName }} = repository;
-        {{~ if !Option.ReadOnlyAppServices ~}}
+        {{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}}
         _manager = manager;
         {{~ end ~}}
     }
     {{~ else ~}}
-    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices ~}},manager{{~ end ~}})
+    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},manager{{~ end ~}})
     {
-        {{~ if !Option.ReadOnlyAppServices ~}}
+        {{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}}
         _manager = manager;
         {{~ end ~}}
     }
