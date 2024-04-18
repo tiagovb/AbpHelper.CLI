@@ -1,3 +1,4 @@
+{{- SKIP_GENERATE = true  -}} //Desabilitador por enquanto
 {{- if Option.SkipCustomRepository
     if EntityInfo.CompositeKeyName
     repository = "IRepository<" + EntityInfo.Name + ">"

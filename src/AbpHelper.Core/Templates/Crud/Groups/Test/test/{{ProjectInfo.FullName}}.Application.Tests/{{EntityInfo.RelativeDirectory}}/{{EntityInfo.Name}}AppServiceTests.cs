@@ -1,3 +1,4 @@
+{{- SKIP_GENERATE = true  -}} //Desabilitador por enquanto. Será gerado no projeto de test do EFCore para consumir BD.
 using Shouldly;
 using System.Threading.Tasks;
 using Xunit;

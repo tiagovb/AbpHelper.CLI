@@ -1,3 +1,4 @@
+{{- SKIP_GENERATE = true  -}} //Desabilitador por enquanto
 using System.Threading.Tasks;
 using Shouldly;
 using Xunit;
