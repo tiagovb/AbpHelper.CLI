@@ -13,7 +13,7 @@ end ~}}
 using System;
 {{~ if Option.ReadOnlyAppServices
     crudClassName = "BaseReadOnlyAppService"
-else if  Option.DomainManager
+else if  !Option.SkipDomainManager
     crudClassName = "BaseCrudAppService"
 else
     crudClassName = "AbstractKeyCrudAppService"
@@ -66,23 +66,23 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     protected override string DeletePolicyName { get; set; } = {{ permissionNamesPrefix }}.Delete;
     {{~ end ~}}
     
-    {{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}}
+    {{~ if !Option.ReadOnlyAppServices && !Option.SkipDomainManager ~}}
     private readonly I{{ EntityInfo.Name }}Manager _manager;
     {{~ end ~}}
     {{~ if !Option.SkipCustomRepository ~}}
     private readonly {{ repositoryType }} {{ repositoryName }};
 
-    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},manager{{~ end ~}})
+    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices && !Option.SkipDomainManager ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices && !Option.SkipDomainManager ~}},manager{{~ end ~}})
     {
         {{ repositoryName }} = repository;
-        {{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}}
+        {{~ if !Option.ReadOnlyAppServices && !Option.SkipDomainManager ~}}
         _manager = manager;
         {{~ end ~}}
     }
     {{~ else ~}}
-    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}},manager{{~ end ~}})
+    public {{ EntityInfo.Name }}AppService({{ repositoryType }} repository{{~ if !Option.ReadOnlyAppServices && !Option.SkipDomainManager ~}},I{{ EntityInfo.Name }}Manager manager{{~ end ~}}) : base(repository{{~ if !Option.ReadOnlyAppServices && !Option.SkipDomainManager ~}},manager{{~ end ~}})
     {
-        {{~ if !Option.ReadOnlyAppServices && Option.DomainManager ~}}
+        {{~ if !Option.ReadOnlyAppServices && !Option.SkipDomainManager ~}}
         _manager = manager;
         {{~ end ~}}
     }
@@ -127,7 +127,7 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     {
         return (await base.CreateFilteredQueryAsync(input))
             {{~ for prop in EntityInfo.Properties ~}}
-            {{~ if (prop | abp.is_ignore_property) || string.starts_with prop.Type "List<"; continue; end ~}}
+            {{~ if (prop | abp.is_ignore_property)  || string.starts_with prop.Type "List<" || string.starts_with prop.Type "IList" ; continue; end ~}}
             {{~ if prop.Type == "string" ~}}
             .WhereIf(!input.{{ prop.Name }}.IsNullOrWhiteSpace(), x => x.{{ prop.Name }}.Contains(input.{{ prop.Name }}))
             {{~ else ~}}

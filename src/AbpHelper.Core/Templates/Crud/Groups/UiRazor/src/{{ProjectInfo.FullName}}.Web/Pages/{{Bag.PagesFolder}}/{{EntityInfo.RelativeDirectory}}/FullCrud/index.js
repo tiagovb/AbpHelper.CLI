@@ -79,7 +79,7 @@ $(function () {
                 }
             },
             {{~ for prop in EntityInfo.Properties ~}}
-            {{~ if prop | abp.is_ignore_property || string.starts_with prop.Type "List<"; continue; end ~}}
+            {{~ if prop | abp.is_ignore_property || string.starts_with prop.Type "List<" || string.starts_with prop.Type "IList" ; continue; end ~}}
             {
                 title: "{{ prop.DisplayName ?? prop.Name }}",
                 data: "{{ prop.Name | abp.camel_case }}"

@@ -1,8 +1,7 @@
 {{- SKIP_GENERATE = DtoInfo.CreateTypeName == DtoInfo.UpdateTypeName -}}
 using System;
-{{~ if !Option.SkipLocalization && Option.SkipViewModel ~}}
 using System.ComponentModel;
-{{~ end ~}}
+using System.ComponentModel.DataAnnotations;
 
 namespace {{ EntityInfo.Namespace }}.Dtos;
 
@@ -15,14 +14,15 @@ namespace {{ EntityInfo.Namespace }}.Dtos;
 public class {{ DtoInfo.UpdateTypeName }}
 {
     {{~ for prop in EntityInfo.Properties ~}}
-    {{~ if prop | abp.is_ignore_property; continue; end ~}}
+    {{~ if EntityInfo.CompositeKeys[0].Name == prop.Name; continue; end ~}}
+    {{~ if prop | abp.is_ignore_property || string.starts_with prop.Type "IList" || string.starts_with prop.Type "List<"; continue; end ~}}
     {{~ if prop.Document| !string.whitespace ~}}
     /// <summary>
     /// {{ prop.Document }}
     /// </summary>
     {{~ end ~}} 
-    {{~ if !Option.SkipLocalization && Option.SkipViewModel ~}}
-    [DisplayName("{{ EntityInfo.Name + prop.Name}}")]
+    {{~ if Option.SkipViewModel ~}}
+    [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
     {{~ end ~}}    
     public {{ prop.Type}} {{ prop.Name }} { get; set; }
     {{~ if !for.last ~}}

@@ -1,5 +1,7 @@
 using System;
 using Volo.Abp.Application.Dtos;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace {{ EntityInfo.Namespace }}.Dtos;
 
@@ -18,6 +20,9 @@ public class {{ DtoInfo.ReadTypeName }} : {{ EntityInfo.BaseType | string.replac
     /// {{ prop.Document }}
     /// </summary>
     {{~ end ~}} 
+    {{~ if Option.SkipViewModel ~}}
+    [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
+    {{~ end ~}}    
     public {{ prop.Type}} {{ prop.Name }} { get; set; }
     {{~ if !for.last ~}}
 

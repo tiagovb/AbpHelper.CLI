@@ -1,4 +1,4 @@
-{{- SKIP_GENERATE = Option.ReadOnlyAppServices || !Option.DomainManager -}}
+{{- SKIP_GENERATE = Option.ReadOnlyAppServices || Option.SkipDomainManager -}}
 using {{ProjectInfo.FullName}}.Domain;
 
 namespace {{ EntityInfo.Namespace }};
