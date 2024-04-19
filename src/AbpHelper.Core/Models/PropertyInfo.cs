@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Core.Models
+namespace EasyAbp.AbpHelper.Core.Models
 {
     public class PropertyInfo
     {
@@ -9,13 +9,15 @@
         public string DisplayName { get; }
 
         public string Document { get; set; }
+        public string? Modifiers { get; set; }
 
-        public PropertyInfo(string type, string name, string document, string displayName)
+        public PropertyInfo(string type, string name, string document, string modifiers, string displayName)
         {
             Type = type;
             Name = name;
             Document = document;
             DisplayName = displayName;
+            Modifiers = modifiers;
         }
     }
 }

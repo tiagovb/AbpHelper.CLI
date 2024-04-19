@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -112,7 +112,10 @@ namespace EasyAbp.AbpHelper.Core.Steps.Abp
                         prop.Type.ToString(),
                         prop.Identifier.ToString(),
                         prop.GetDocument(),
-                    GetDisplayName(prop.AttributeLists.FirstOrDefault()) ?? string.Empty)).ToList();
+                        prop.Modifiers.ToFullString().Trim(),
+                        GetDisplayName(prop.AttributeLists.FirstOrDefault()) ?? string.Empty)
+                        
+                    ).ToList();
 
                 primaryKey = primaryKey ?? properties.FirstOrDefault(p => p.Name == keyNames?.FirstOrDefault()).Type!;
 

@@ -14,6 +14,14 @@ namespace {{ EntityInfo.Namespace }}.Dtos;
 public class {{ DtoInfo.ReadTypeName }} : {{ EntityInfo.BaseType | string.replace "AggregateRoot" "Entity"}}Dto{{ if EntityInfo.PrimaryKey }}<{{ EntityInfo.PrimaryKey}}>{{ end }}
 {
     {{~ for prop in EntityInfo.Properties ~}}
+{{
+    if string.contains prop.Type "List"
+        propType = string.replace prop.Type ">" "Dto>"
+    else if string.contains prop.Modifiers "virtual"
+        propType = prop.Type + "Dto"
+    else
+        propType = prop.Type
+    end ~}}
     {{~ if prop | abp.is_ignore_property; continue; end ~}}
     {{~ if prop.Document| !string.whitespace ~}}
     /// <summary>
@@ -22,8 +30,8 @@ public class {{ DtoInfo.ReadTypeName }} : {{ EntityInfo.BaseType | string.replac
     {{~ end ~}} 
     {{~ if Option.SkipViewModel ~}}
     [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
-    {{~ end ~}}    
-    public {{ prop.Type}} {{ prop.Name }} { get; set; }
+    {{~ end ~}}
+    public {{ propType}} {{ prop.Name }} { get; set; }
     {{~ if !for.last ~}}
 
     {{~ end ~}}
