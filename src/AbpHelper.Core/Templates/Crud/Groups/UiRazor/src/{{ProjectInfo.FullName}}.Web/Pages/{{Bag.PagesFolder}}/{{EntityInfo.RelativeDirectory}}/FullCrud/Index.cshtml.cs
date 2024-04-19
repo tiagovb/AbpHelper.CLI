@@ -24,11 +24,10 @@ public class IndexModel : {{ ProjectInfo.Name }}PageModel
 public class {{ EntityInfo.Name }}FilterInput
 {
     {{~ for prop in EntityInfo.Properties ~}}
+    {{~ if string.contains prop.Modifiers "virtual" ; continue; end ~}}
     {{~ if prop | abp.is_ignore_property || string.starts_with prop.Type "List<" || string.starts_with prop.Type "IList" ; continue; end ~}} 
     [FormControlSize(AbpFormControlSize.Small)]
-    {{~ if !Option.SkipLocalization ~}}
-    [Display(Name = "{{ EntityInfo.Name + prop.Name}}")]
-    {{~ end ~}}
+    [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
     public {{ prop.Type}}{{~ if !string.ends_with prop.Type "?"; "?"; end}} {{ prop.Name }} { get; set; }
     {{~ if !for.last ~}}
 

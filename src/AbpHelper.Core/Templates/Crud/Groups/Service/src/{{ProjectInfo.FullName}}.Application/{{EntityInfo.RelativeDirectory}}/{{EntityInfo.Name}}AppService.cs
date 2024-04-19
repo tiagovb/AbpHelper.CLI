@@ -131,7 +131,15 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
             {{~ if prop.Type == "string" ~}}
             .WhereIf(!input.{{ prop.Name }}.IsNullOrWhiteSpace(), x => x.{{ prop.Name }}.Contains(input.{{ prop.Name }}))
             {{~ else ~}}
-            .WhereIf(input.{{ prop.Name }} != null, x => x.{{ prop.Name }} == input.{{ prop.Name }})
+{{
+    if string.contains prop.Modifiers "virtual"
+        propType = "int"
+        propName = prop.Name + "Id"
+    else
+        propType = prop.Type
+        propName = prop.Name
+    end ~}}
+            .WhereIf(input.{{ propName }} {{~ if prop.Type == "int" || propType == "int" ~}} > 0 {{~ else ~}} != null {{~ end ~}}, x => x.{{ prop.Name }}{{~ if string.contains prop.Modifiers "virtual" ~}}.Id{{~ end ~}}  == input.{{ propName }})
             {{~ end ~}}
             {{~ end ~}}
             ;

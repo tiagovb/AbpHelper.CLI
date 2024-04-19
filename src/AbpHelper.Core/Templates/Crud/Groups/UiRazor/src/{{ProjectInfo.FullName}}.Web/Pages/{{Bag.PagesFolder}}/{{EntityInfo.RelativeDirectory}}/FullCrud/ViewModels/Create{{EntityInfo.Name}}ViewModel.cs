@@ -8,6 +8,7 @@ namespace {{ ProjectInfo.FullName }}.Web.Pages.{{ pagesNamespace }}{{ EntityInfo
 public class Create{{ EntityInfo.Name }}ViewModel
 {
     {{~ for prop in EntityInfo.Properties ~}}
+    {{~ if string.contains prop.Modifiers "virtual" ; continue; end ~}}
     {{~ if prop | abp.is_ignore_property; continue; end ~}}
     [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
     public {{ prop.Type}} {{ prop.Name }} { get; set; }

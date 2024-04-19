@@ -28,9 +28,7 @@ public class {{ DtoInfo.ReadTypeName }} : {{ EntityInfo.BaseType | string.replac
     /// {{ prop.Document }}
     /// </summary>
     {{~ end ~}} 
-    {{~ if Option.SkipViewModel ~}}
     [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
-    {{~ end ~}}
     public {{ propType}} {{ prop.Name }} { get; set; }
     {{~ if !for.last ~}}
 

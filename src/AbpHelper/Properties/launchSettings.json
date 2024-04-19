@@ -2,7 +2,7 @@
   "profiles": {
     "AbpHelper": {
       "commandName": "Project",
-      "commandLineArgs": "generate crud Livro -d C:\\Users\\TIVIANA.Y530\\wk\\TRF3.SISPREC  --no-overwrite  --skip-entity-constructors --skip-permissions --skip-db-migrations --skip-localization --skip-view-model"
+      "commandLineArgs": "generate crud Autor -d C:\\Users\\TIVIANA.Y530\\wk\\TRF3.SISPREC  --no-overwrite  --skip-entity-constructors --skip-permissions --skip-db-migrations --skip-localization --skip-view-model"
     }
   }
 }
