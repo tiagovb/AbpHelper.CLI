@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Shouldly;
 using Xunit;
 
-namespace {{ ProjectInfo.FullName }}.Pages.{{ EntityInfo.RelativeNamespace}};
+namespace {{ ProjectInfo.FullName }}.Pages.Tests.{{ EntityInfo.RelativeNamespace}};
 
 public class Index_Tests : {{ ProjectInfo.Name }}WebTestBase
 {

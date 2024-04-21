@@ -11,7 +11,7 @@ namespace {{ ProjectInfo.FullName }}.Web.Pages.{{ pagesNamespace }}{{ EntityInfo
 public class IndexModel : {{ ProjectInfo.Name }}PageModel
 {
     {{~ if !Option.SkipGetListInputDto ~}}
-    public {{ EntityInfo.Name }}FilterInput {{ EntityInfo.Name }}Filter { get; set; }
+    public {{ EntityInfo.Name }}FilterInput {{ EntityInfo.Name }}Filter { get; set; } = new();
     {{~ end ~}}
     
     public virtual async Task OnGetAsync()

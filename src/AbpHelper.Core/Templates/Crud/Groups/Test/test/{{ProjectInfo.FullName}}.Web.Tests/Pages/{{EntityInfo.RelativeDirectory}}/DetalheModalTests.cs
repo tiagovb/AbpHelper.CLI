@@ -6,7 +6,7 @@ using Xunit;
 using {{ ProjectInfo.FullName }};
 using {{ ProjectInfo.FullName }}.{{ EntityInfo.RelativeNamespace}};
 
-namespace {{ ProjectInfo.FullName }}.Pages.{{ EntityInfo.RelativeNamespace}};
+namespace {{ ProjectInfo.FullName }}.Pages.Tests.{{ EntityInfo.RelativeNamespace}};
 
 public class DetalheModalTests : {{ ProjectInfo.Name }}WebTestBase
 {
@@ -36,10 +36,10 @@ public class DetalheModalTests : {{ ProjectInfo.Name }}WebTestBase
         response.ShouldNotBeNull();
         responseString.ShouldNotBeNull();
 
-        //Verifique se o mÈtodo de busca retorna statusCode diferente de 200 se n„o achar.
+        //Verifique se o m√©todo de busca retorna statusCode diferente de 200 se n√£o achar.
         response.StatusCode.ShouldBe(System.Net.HttpStatusCode.OK);
 
-        /* Utilize cÛdigo para buscar elementos na resposta obtida para garantir que carregou corretamente. Exemplo:
+        /* Utilize c√≥digo para buscar elementos na resposta obtida para garantir que carregou corretamente. Exemplo:
          * 
          * 
             var htmlDocument = new HtmlDocument();

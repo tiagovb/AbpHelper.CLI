@@ -91,7 +91,7 @@ public class {{ EntityInfo.Name }}AppService: {{ crudClassName }}<{{ EntityInfo.
     {{~ if !Option.ReadOnlyAppServices ~}}
     protected override Task DeleteByIdAsync({{ EntityInfo.CompositeKeyName }} id)
     {
-        return {{ repositoryName }}.DeleteAsync(e =>
+        return _manager.ExcluirAsync(e =>
         {{~ if EntityInfo.CompositeKeys.Count > 1 ~}}
         {{~ for prop in EntityInfo.CompositeKeys ~}}
             e.{{ prop.Name }} == id.{{ prop.Name}}{{ if !for.last}} &&{{end}}
