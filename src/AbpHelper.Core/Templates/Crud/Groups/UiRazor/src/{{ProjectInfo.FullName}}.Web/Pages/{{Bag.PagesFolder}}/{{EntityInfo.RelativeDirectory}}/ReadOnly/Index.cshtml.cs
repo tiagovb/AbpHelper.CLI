@@ -25,7 +25,7 @@ public class {{ EntityInfo.Name }}FilterInput
 {
     {{~ for prop in EntityInfo.Properties ~}}
     {{~ if prop | abp.is_ignore_property || string.starts_with prop.Type "List<" || string.starts_with prop.Type "IList" ; continue; end ~}} 
-    //[FormControlSize(AbpFormControlSize.Small)]
+    [FormControlSize(AbpFormControlSize.Small)]
     {{~ if !Option.SkipLocalization ~}}
     [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
     {{~ end ~}}
