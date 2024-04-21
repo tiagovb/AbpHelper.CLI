@@ -37,14 +37,12 @@ using Volo.Abp.Domain.Repositories;
 {{~ end ~}}
 
 namespace {{ EntityInfo.Namespace }};
-
 {{~
     if !Option.SkipGetListInputDto
         TGetListInput = EntityInfo.Name + "GetListInput"
     else
         TGetListInput = "PagedAndSortedResultRequestDto"
 end ~}}
-
 {{~ if EntityInfo.Document | !string.whitespace ~}}
 /// <summary>
 /// {{ EntityInfo.Document }}

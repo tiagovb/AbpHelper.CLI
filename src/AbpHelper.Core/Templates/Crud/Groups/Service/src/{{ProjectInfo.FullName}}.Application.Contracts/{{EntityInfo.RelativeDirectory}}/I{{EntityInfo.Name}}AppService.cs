@@ -13,13 +13,11 @@ namespace {{ EntityInfo.Namespace }};
     else
         TGetListInput = "PagedAndSortedResultRequestDto"
 end ~}}
-
 {{~ if EntityInfo.Document | !string.whitespace ~}}
 /// <summary>
 /// {{ EntityInfo.Document }}
 /// </summary>
 {{~ end ~}}
-
 {{~ if Option.ReadOnlyAppServices ~}}
 public interface I{{ EntityInfo.Name }}AppService:
 IReadOnlyAppService <
@@ -28,7 +26,6 @@ IReadOnlyAppService <
         {{ TGetListInput }}>
 
 {{~ end ~}}
-
 {{~ if !Option.ReadOnlyAppServices ~}}
 public interface I{{ EntityInfo.Name }}AppService :
     ICrudAppService< 

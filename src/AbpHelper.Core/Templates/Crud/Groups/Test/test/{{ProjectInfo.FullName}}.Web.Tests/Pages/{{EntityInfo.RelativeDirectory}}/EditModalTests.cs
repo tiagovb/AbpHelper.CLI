@@ -11,6 +11,7 @@ namespace {{ ProjectInfo.FullName }}.Pages.Tests.{{ EntityInfo.RelativeNamespace
 entityNameLowerCase = EntityInfo.Name | abp.camel_case
 entityObj = entityNameLowerCase + "Obj"
 -}}
+
 public class EditModalTests : SISPRECWebTestBase
 {
     private readonly I{{ EntityInfo.Name }}Repository _{{entityNameLowerCase}}Repository;
@@ -50,10 +51,12 @@ public class EditModalTests : SISPRECWebTestBase
 
         htmlDocument.LoadHtml(responseAsString);
 
-        // Get the hidden input element by ID and verify its value matches autorObj.Id
+        // Obtenha o elemento de entrada oculto pelo ID e verifique se o valor corresponde ao autorObj.Id
         var hiddenIdInput = htmlDocument.GetElementbyId("Id");
         hiddenIdInput.ShouldNotBeNull();
 
+        // AJUSTE AQUI!! Faça os ajustes para a tela a ser testada
+        // Verifica campos preenchidos
         {{~ for prop in EntityInfo.Properties ~}}
         {{~ if string.contains(prop.Modifiers, "virtual") ; continue; end ~}}
         {{~ if prop | abp.is_ignore_property ; continue; end ~}}
@@ -66,11 +69,11 @@ public class EditModalTests : SISPRECWebTestBase
         {{~ end ~}} 
         {{~ end ~}}
 
-        // Verify the presence of the modal footer
+        // Verificar existência do rodapé do modal
         var footer = htmlDocument.DocumentNode.SelectSingleNode("//*[contains(@class, 'modal-footer')]");
         footer.ShouldNotBeNull();
 
-        // Verify Cancel and Save buttons
+        // Verificar botões Cancelar e Salvar
         var buttons = footer.SelectNodes(".//button");
         buttons.Count.ShouldBe(2);
         buttons[0].InnerText.Trim().ShouldBe("Cancelar");
