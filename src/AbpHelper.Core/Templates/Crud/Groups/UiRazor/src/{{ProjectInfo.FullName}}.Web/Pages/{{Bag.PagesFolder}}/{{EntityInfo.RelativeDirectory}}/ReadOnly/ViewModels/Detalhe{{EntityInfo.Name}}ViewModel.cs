@@ -9,7 +9,6 @@ public class Detalhe{{ EntityInfo.Name }}ViewModel
 {
     {{~ for prop in EntityInfo.Properties ~}}
     {{~ if prop | abp.is_ignore_property; continue; end ~}}
-    {{~ if EntityInfo.CompositeKeys[0].Name == prop.Name; continue; end ~}}
     [Display(Name = "{{ prop.DisplayName ?? prop.Name }}")]
     public {{ prop.Type}} {{ prop.Name }} { get; set; }
     {{~ if !for.last ~}}

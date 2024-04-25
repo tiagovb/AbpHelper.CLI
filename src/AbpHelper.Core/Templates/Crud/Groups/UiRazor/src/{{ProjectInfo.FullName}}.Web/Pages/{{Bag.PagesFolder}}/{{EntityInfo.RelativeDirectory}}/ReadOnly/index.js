@@ -49,7 +49,7 @@ $(function () {
     {{~ end ~}}
                                     });
 {{~ else ~}}
-                                    detalheModal.open({ id: data.record.id });
+                                    detalheModal.open({ id: data.record.{{~ if EntityInfo.CompositeKeyName ~}}{{ EntityInfo.CompositeKeys[0].Name | abp.camel_case }}{{~ else ~}}id{{~ end ~}} });
 {{~ end ~}}
                                 }
                             },

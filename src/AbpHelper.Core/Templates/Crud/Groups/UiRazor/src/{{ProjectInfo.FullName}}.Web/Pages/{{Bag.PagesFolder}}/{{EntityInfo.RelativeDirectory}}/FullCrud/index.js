@@ -55,7 +55,7 @@ $(function () {
     {{~ end ~}}
                                     });
 {{~ else ~}}
-                                    editModal.open({ id: data.record.id });
+                                    editModal.open({ id: data.record.{{~ if EntityInfo.CompositeKeyName ~}}{{ EntityInfo.CompositeKeys[0].Name | abp.camel_case }}{{~ else ~}}id{{~ end ~}} });
 {{~ end ~}}
                                 }
                             },
@@ -68,11 +68,12 @@ $(function () {
                                     return "Tem certeza de que deseja excluir?"
                                 },
                                 action: function (data) {
+                                    abp.ui.block({ elm: 'body', busy: true });
                                     service.delete(data.record.id)
                                         .then(function () {
                                             abp.notify.info(l('SuccessfullyDeleted'));
                                             dataTable.ajax.reload();
-                                        });
+                                        }).always(function () { abp.ui.unblock(); });
                                 }
                             }
                         ]
