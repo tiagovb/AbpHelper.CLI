@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
-using EasyAbp.AbpHelper.Core.Extensions;
+using AbpTools.AbpHelper.Core.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
 
-namespace EasyAbp.AbpHelper.Core
+namespace AbpTools.AbpHelper.Core
 {
     [DependsOn(
         typeof(AbpAutofacModule),

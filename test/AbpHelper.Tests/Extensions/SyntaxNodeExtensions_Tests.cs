@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using EasyAbp.AbpHelper.Core.Extensions;
+using AbpTools.AbpHelper.Core.Extensions;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Shouldly;
@@ -12,7 +12,7 @@ namespace EasyApp.AbpHelper.Tests.Extensions
         private const string CSharpCode = 
 @"using System;
 
-namespace EasyAbp.AbpHelper
+namespace AbpTools.AbpHelper
 {
     public   class Hello
     {

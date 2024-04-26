@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Core.Commands
+namespace AbpTools.AbpHelper.Core.Commands
 {
     public class CommandLineBuilder : System.CommandLine.Builder.CommandLineBuilder
     {
@@ -32,7 +32,7 @@ namespace EasyAbp.AbpHelper.Core.Commands
             var commandTypes = Assembly.GetExecutingAssembly()
                 .GetExportedTypes()
                 .Where(t => t.IsSubclassOf(typeof(CommandBase)))
-                .Where(t => t.Namespace!.Split('.').Length == 5) // The namespace of a root command is 5 parts, like "EasyAbp.AbpHelper.Core.Commands.Generate"
+                .Where(t => t.Namespace!.Split('.').Length == 5) // The namespace of a root command is 5 parts, like "AbpTools.AbpHelper.Core.Commands.Generate"
                 ;
             foreach (var commandType in commandTypes)
             {

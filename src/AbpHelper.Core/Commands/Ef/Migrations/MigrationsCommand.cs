@@ -1,8 +1,8 @@
 ﻿using System;
-using EasyAbp.AbpHelper.Core.Commands.Ef.Migrations.Add;
-using EasyAbp.AbpHelper.Core.Commands.Ef.Migrations.Remove;
+using AbpTools.AbpHelper.Core.Commands.Ef.Migrations.Add;
+using AbpTools.AbpHelper.Core.Commands.Ef.Migrations.Remove;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Ef.Migrations
+namespace AbpTools.AbpHelper.Core.Commands.Ef.Migrations
 {
     public class MigrationsCommand : CommandBase
     {

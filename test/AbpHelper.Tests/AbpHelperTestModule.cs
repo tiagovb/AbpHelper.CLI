@@ -1,4 +1,4 @@
-﻿using EasyAbp.AbpHelper;
+﻿using AbpTools.AbpHelper;
 using Volo.Abp;
 using Volo.Abp.Modularity;
 

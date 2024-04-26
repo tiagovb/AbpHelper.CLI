@@ -1,9 +1,9 @@
 ﻿using System;
-using EasyAbp.AbpHelper.Core.Commands.Module.Add;
-using EasyAbp.AbpHelper.Core.Commands.Module.Remove;
+using AbpTools.AbpHelper.Core.Commands.Module.Add;
+using AbpTools.AbpHelper.Core.Commands.Module.Remove;
 using JetBrains.Annotations;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Module
+namespace AbpTools.AbpHelper.Core.Commands.Module
 {
     public class ModuleCommand : CommandBase
     {

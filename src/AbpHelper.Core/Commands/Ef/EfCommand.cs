@@ -1,7 +1,7 @@
 ﻿using System;
-using EasyAbp.AbpHelper.Core.Commands.Ef.Migrations;
+using AbpTools.AbpHelper.Core.Commands.Ef.Migrations;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Ef
+namespace AbpTools.AbpHelper.Core.Commands.Ef
 {
     public class EfCommand : CommandBase
     {

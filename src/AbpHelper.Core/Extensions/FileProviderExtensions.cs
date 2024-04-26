@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.FileProviders;
 
-namespace EasyAbp.AbpHelper.Core.Extensions
+namespace AbpTools.AbpHelper.Core.Extensions
 {
     public static class FileProviderExtensions
     {

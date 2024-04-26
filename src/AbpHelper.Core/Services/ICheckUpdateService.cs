@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace EasyAbp.AbpHelper.Core.Services
+namespace AbpTools.AbpHelper.Core.Services
 {
     public interface ICheckUpdateService
     {

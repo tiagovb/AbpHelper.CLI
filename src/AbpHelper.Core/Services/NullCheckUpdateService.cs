@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Volo.Abp.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Core.Services
+namespace AbpTools.AbpHelper.Core.Services
 {
     [Dependency(TryRegister = true)]
     public class NullCheckUpdateService : ICheckUpdateService, ITransientDependency

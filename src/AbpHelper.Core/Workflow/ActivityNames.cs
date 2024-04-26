@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Core.Workflow
+﻿namespace AbpTools.AbpHelper.Core.Workflow
 {
     public static class ActivityNames
     {

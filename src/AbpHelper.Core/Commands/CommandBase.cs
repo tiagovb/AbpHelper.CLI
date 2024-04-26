@@ -3,7 +3,7 @@ using System.CommandLine;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Core.Commands
+namespace AbpTools.AbpHelper.Core.Commands
 {
     public abstract class CommandBase : Command, ITransientDependency
     {

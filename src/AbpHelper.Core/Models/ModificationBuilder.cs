@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EasyAbp.AbpHelper.Core.Models
+namespace AbpTools.AbpHelper.Core.Models
 {
     public abstract class ModificationBuilder<TNode>
     {

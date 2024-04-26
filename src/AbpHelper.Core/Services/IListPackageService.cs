@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Core.Models;
+using AbpTools.AbpHelper.Core.Models;
 
-namespace EasyAbp.AbpHelper.Core.Services
+namespace AbpTools.AbpHelper.Core.Services
 {
     public interface IListPackageService
     {

@@ -3,15 +3,15 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Core.Generator;
-using EasyAbp.AbpHelper.Core.Models;
-using EasyAbp.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Generator;
+using AbpTools.AbpHelper.Core.Models;
+using AbpTools.AbpHelper.Core.Steps.Common;
 using Elsa.Expressions;
 using Elsa.Results;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services.Models;
 
-namespace EasyAbp.AbpHelper.Core.Steps.Abp.ModificationCreatorSteps.Typescript
+namespace AbpTools.AbpHelper.Core.Steps.Abp.ModificationCreatorSteps.Typescript
 {
     public abstract class TypeScriptModificationCreatorStep : Step
     {

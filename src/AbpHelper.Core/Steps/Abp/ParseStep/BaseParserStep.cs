@@ -5,9 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Core.Extensions;
-using EasyAbp.AbpHelper.Core.Models;
-using EasyAbp.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Extensions;
+using AbpTools.AbpHelper.Core.Models;
+using AbpTools.AbpHelper.Core.Steps.Common;
 using Elsa.Expressions;
 using Elsa.Results;
 using Elsa.Scripting.JavaScript;
@@ -16,9 +16,9 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
-using TypeInfo = EasyAbp.AbpHelper.Core.Models.TypeInfo;
+using TypeInfo = AbpTools.AbpHelper.Core.Models.TypeInfo;
 
-namespace EasyAbp.AbpHelper.Core.Steps.Abp.ParseStep
+namespace AbpTools.AbpHelper.Core.Steps.Abp.ParseStep
 {
     public abstract class BaseParserStep<TType> : Step where TType : TypeDeclarationSyntax
     {

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using EasyAbp.AbpHelper.Core.Steps.Abp;
-using EasyAbp.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Steps.Abp;
+using AbpTools.AbpHelper.Core.Steps.Common;
 using Elsa;
 using Elsa.Activities.ControlFlow.Activities;
 using Elsa.Expressions;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services;
 
-namespace EasyAbp.AbpHelper.Core.Workflow.Generate.Crud
+namespace AbpTools.AbpHelper.Core.Workflow.Generate.Crud
 {
     public static class LocalizationGenerationWorkflow
     {

@@ -3,10 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using EasyAbp.AbpHelper.Core.Models;
+using AbpTools.AbpHelper.Core.Models;
 using Volo.Abp.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Core.Services
+namespace AbpTools.AbpHelper.Core.Services
 {
     public class ListPackageService : IListPackageService, ITransientDependency
     {

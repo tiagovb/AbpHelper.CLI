@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.CommandLine;
 using System.Linq;
 using System.Runtime.InteropServices;
-using EasyAbp.AbpHelper.Core.Steps.Abp;
-using EasyAbp.AbpHelper.Core.Steps.Abp.ModificationCreatorSteps.CSharp;
-using EasyAbp.AbpHelper.Core.Steps.Common;
-using EasyAbp.AbpHelper.Core.Workflow;
-using EasyAbp.AbpHelper.Core.Workflow.Common;
+using AbpTools.AbpHelper.Core.Steps.Abp;
+using AbpTools.AbpHelper.Core.Steps.Abp.ModificationCreatorSteps.CSharp;
+using AbpTools.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Workflow;
+using AbpTools.AbpHelper.Core.Workflow.Common;
 using Elsa;
 using Elsa.Activities;
 using Elsa.Activities.ControlFlow.Activities;
@@ -16,7 +16,7 @@ using Elsa.Scripting.JavaScript;
 using Elsa.Services;
 using JetBrains.Annotations;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Module.Add
+namespace AbpTools.AbpHelper.Core.Commands.Module.Add
 {
     public class AddCommand : CommandWithOption<AddCommandOption>
     {

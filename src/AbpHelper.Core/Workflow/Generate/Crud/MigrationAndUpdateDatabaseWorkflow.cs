@@ -1,9 +1,9 @@
-﻿using EasyAbp.AbpHelper.Core.Steps.Common;
-using EasyAbp.AbpHelper.Core.Workflow.Common;
+﻿using AbpTools.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Workflow.Common;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services;
 
-namespace EasyAbp.AbpHelper.Core.Workflow.Generate.Crud
+namespace AbpTools.AbpHelper.Core.Workflow.Generate.Crud
 {
     public static class MigrationAndUpdateDatabaseWorkflow
     {

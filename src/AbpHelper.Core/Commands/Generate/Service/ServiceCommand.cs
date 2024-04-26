@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Core.Extensions;
-using EasyAbp.AbpHelper.Core.Steps.Abp;
-using EasyAbp.AbpHelper.Core.Steps.Common;
-using EasyAbp.AbpHelper.Core.Workflow;
-using EasyAbp.AbpHelper.Core.Workflow.Generate;
+using AbpTools.AbpHelper.Core.Extensions;
+using AbpTools.AbpHelper.Core.Steps.Abp;
+using AbpTools.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Workflow;
+using AbpTools.AbpHelper.Core.Workflow.Generate;
 using Elsa.Activities;
 using Elsa.Expressions;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services;
 using Humanizer;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Generate.Service
+namespace AbpTools.AbpHelper.Core.Commands.Generate.Service
 {
     public class ServiceCommand : CommandWithOption<ServiceCommandOption>
     {

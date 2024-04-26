@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace EasyAbp.AbpHelper.Core.Extensions
+namespace AbpTools.AbpHelper.Core.Extensions
 {
     public static class ObjectExtensions
     {

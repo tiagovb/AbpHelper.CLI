@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EasyAbp.AbpHelper.Core.Models
+namespace AbpTools.AbpHelper.Core.Models
 {
     public class MethodInfo : IEquatable<MethodInfo>
     {

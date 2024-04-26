@@ -1,7 +1,7 @@
 ﻿using System;
-using EasyAbp.AbpHelper.Core.Attributes;
+using AbpTools.AbpHelper.Core.Attributes;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Module
+namespace AbpTools.AbpHelper.Core.Commands.Module
 {
     public abstract class ModuleCommandOption : CommandOptionsBase
     {

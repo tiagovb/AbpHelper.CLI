@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace EasyAbp.AbpHelper.Core.Attributes
+namespace AbpTools.AbpHelper.Core.Attributes
 {
     public abstract class BaseAttribute : Attribute
     {

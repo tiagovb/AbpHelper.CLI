@@ -6,10 +6,10 @@ using Microsoft.CodeAnalysis;
 using Scriban.Runtime;
 using Volo.Abp.Http;
 using Volo.Abp.Reflection;
-using MethodInfo = EasyAbp.AbpHelper.Core.Models.MethodInfo;
-using PropertyInfo = EasyAbp.AbpHelper.Core.Models.PropertyInfo;
+using MethodInfo = AbpTools.AbpHelper.Core.Models.MethodInfo;
+using PropertyInfo = AbpTools.AbpHelper.Core.Models.PropertyInfo;
 
-namespace EasyAbp.AbpHelper.Core.Generator
+namespace AbpTools.AbpHelper.Core.Generator
 {
     public class AbpFunctions : ScriptObject
     {

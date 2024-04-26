@@ -1,8 +1,8 @@
 ﻿using System;
-using EasyAbp.AbpHelper.Core.Extensions;
+using AbpTools.AbpHelper.Core.Extensions;
 using Microsoft.CodeAnalysis;
 
-namespace EasyAbp.AbpHelper.Core.Models
+namespace AbpTools.AbpHelper.Core.Models
 {
     public class ParameterInfo : IEquatable<ParameterInfo>
     {

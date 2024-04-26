@@ -1,10 +1,10 @@
-﻿using EasyAbp.AbpHelper.Core.Steps.Common;
+﻿using AbpTools.AbpHelper.Core.Steps.Common;
 using Elsa;
 using Elsa.Activities.ControlFlow.Activities;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services;
 
-namespace EasyAbp.AbpHelper.Core.Workflow.Common
+namespace AbpTools.AbpHelper.Core.Workflow.Common
 {
     public static class ConfigureFindDbContextWorkflow
     {

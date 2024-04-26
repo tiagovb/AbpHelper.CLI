@@ -1,6 +1,6 @@
-﻿using EasyAbp.AbpHelper.Core.Attributes;
+﻿using AbpTools.AbpHelper.Core.Attributes;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Generate
+namespace AbpTools.AbpHelper.Core.Commands.Generate
 {
     public class GenerateCommandOption : CommandOptionsBase
     {

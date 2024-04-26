@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace EasyAbp.AbpHelper.Core.Models
+namespace AbpTools.AbpHelper.Core.Models
 {
     public class LineNode
     {

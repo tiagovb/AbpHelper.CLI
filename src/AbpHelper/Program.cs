@@ -1,13 +1,13 @@
-﻿using System.CommandLine.Builder;
+using System.CommandLine.Builder;
 using System.CommandLine.Parsing;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Events;
 using Volo.Abp;
-using CommandLineBuilder = EasyAbp.AbpHelper.Core.Commands.CommandLineBuilder;
+using CommandLineBuilder = AbpTools.AbpHelper.Core.Commands.CommandLineBuilder;
 
-namespace EasyAbp.AbpHelper
+namespace AbpTools.AbpHelper
 {
     internal class Program
     {

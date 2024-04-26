@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -9,9 +9,9 @@
     <Nullable>enable</Nullable>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>abphelper</ToolCommandName>
-    <PackageId>EasyAbp.AbpHelper</PackageId>
-    <AssemblyName>EasyAbp.AbpHelper</AssemblyName>
-    <RootNamespace>EasyAbp.AbpHelper</RootNamespace>
+    <PackageId>AbpTools.AbpHelper</PackageId>
+    <AssemblyName>AbpTools.AbpHelper</AssemblyName>
+    <RootNamespace>AbpTools.AbpHelper</RootNamespace>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 

@@ -1,6 +1,6 @@
-﻿using EasyAbp.AbpHelper.Core.Attributes;
+﻿using AbpTools.AbpHelper.Core.Attributes;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Module.Add
+namespace AbpTools.AbpHelper.Core.Commands.Module.Add
 {
     public class AddCommandOption : ModuleCommandOption
     {

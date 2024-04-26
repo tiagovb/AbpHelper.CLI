@@ -4,7 +4,7 @@ using Elsa.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace EasyAbp.AbpHelper.Core.Steps
+namespace AbpTools.AbpHelper.Core.Steps
 {
     public abstract class Step : Activity
     {

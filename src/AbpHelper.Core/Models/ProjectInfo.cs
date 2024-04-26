@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace EasyAbp.AbpHelper.Core.Models
+namespace AbpTools.AbpHelper.Core.Models
 {
     public class ProjectInfo
     {

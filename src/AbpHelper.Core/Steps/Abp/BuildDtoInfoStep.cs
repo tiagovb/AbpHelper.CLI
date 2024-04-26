@@ -1,11 +1,11 @@
 ﻿using System;
-using EasyAbp.AbpHelper.Core.Commands.Generate.Crud;
-using EasyAbp.AbpHelper.Core.Models;
+using AbpTools.AbpHelper.Core.Commands.Generate.Crud;
+using AbpTools.AbpHelper.Core.Models;
 using Elsa.Results;
 using Elsa.Services.Models;
 using Microsoft.Extensions.Logging;
 
-namespace EasyAbp.AbpHelper.Core.Steps.Abp
+namespace AbpTools.AbpHelper.Core.Steps.Abp
 {
     public class BuildDtoInfoStep : Step
     {

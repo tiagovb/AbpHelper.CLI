@@ -6,7 +6,7 @@ using Scriban.Runtime;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.VirtualFileSystem;
 
-namespace EasyAbp.AbpHelper.Core.Generator
+namespace AbpTools.AbpHelper.Core.Generator
 {
     public class TemplateLoader : ITemplateLoader, ISingletonDependency
     {

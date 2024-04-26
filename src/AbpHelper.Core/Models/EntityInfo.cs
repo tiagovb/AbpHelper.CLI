@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
-using EasyAbp.AbpHelper.Core.Extensions;
+using AbpTools.AbpHelper.Core.Extensions;
 using Humanizer;
 
-namespace EasyAbp.AbpHelper.Core.Models
+namespace AbpTools.AbpHelper.Core.Models
 {
     public class EntityInfo
     {

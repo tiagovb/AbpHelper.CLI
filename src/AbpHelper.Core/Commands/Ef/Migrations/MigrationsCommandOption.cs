@@ -1,6 +1,6 @@
-﻿using EasyAbp.AbpHelper.Core.Attributes;
+﻿using AbpTools.AbpHelper.Core.Attributes;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Ef.Migrations
+namespace AbpTools.AbpHelper.Core.Commands.Ef.Migrations
 {
     public abstract class MigrationsCommandOption : CommandOptionsBase
     {

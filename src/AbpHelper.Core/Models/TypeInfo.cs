@@ -2,7 +2,7 @@
 using System.Linq;
 using Humanizer;
 
-namespace EasyAbp.AbpHelper.Core.Models
+namespace AbpTools.AbpHelper.Core.Models
 {
     /// <summary>
     /// Hold information of a class or a interface

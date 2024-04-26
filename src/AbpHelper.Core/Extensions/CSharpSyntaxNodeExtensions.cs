@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace EasyAbp.AbpHelper.Core.Extensions
+namespace AbpTools.AbpHelper.Core.Extensions
 {
     public static class CSharpSyntaxNodeExtensions
     {

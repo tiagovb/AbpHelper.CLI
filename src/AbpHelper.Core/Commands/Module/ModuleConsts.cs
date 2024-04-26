@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Core.Commands.Module
+﻿namespace AbpTools.AbpHelper.Core.Commands.Module
 {
     public class ModuleConsts
     {

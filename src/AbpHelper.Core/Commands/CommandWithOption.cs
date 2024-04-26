@@ -5,10 +5,10 @@ using System.CommandLine.Invocation;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Core.Attributes;
-using EasyAbp.AbpHelper.Core.Extensions;
-using EasyAbp.AbpHelper.Core.Services;
-using EasyAbp.AbpHelper.Core.Steps.Abp;
+using AbpTools.AbpHelper.Core.Attributes;
+using AbpTools.AbpHelper.Core.Extensions;
+using AbpTools.AbpHelper.Core.Services;
+using AbpTools.AbpHelper.Core.Steps.Abp;
 using Elsa.Activities;
 using Elsa.Expressions;
 using Elsa.Models;
@@ -18,7 +18,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace EasyAbp.AbpHelper.Core.Commands
+namespace AbpTools.AbpHelper.Core.Commands
 {
     public abstract class CommandWithOption<TOption> : CommandBase where TOption : CommandOptionsBase
     {

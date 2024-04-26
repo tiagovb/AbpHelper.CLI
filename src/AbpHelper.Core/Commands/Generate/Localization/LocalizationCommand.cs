@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using EasyAbp.AbpHelper.Core.Steps.Abp;
-using EasyAbp.AbpHelper.Core.Steps.Common;
-using EasyAbp.AbpHelper.Core.Workflow;
-using EasyAbp.AbpHelper.Core.Workflow.Generate;
+using AbpTools.AbpHelper.Core.Steps.Abp;
+using AbpTools.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Workflow;
+using AbpTools.AbpHelper.Core.Workflow.Generate;
 using Elsa;
 using Elsa.Activities;
 using Elsa.Activities.ControlFlow.Activities;
@@ -11,7 +11,7 @@ using Elsa.Expressions;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Generate.Localization
+namespace AbpTools.AbpHelper.Core.Commands.Generate.Localization
 {
     public class LocalizationCommand : CommandWithOption<LocalizationCommandOption>
     {

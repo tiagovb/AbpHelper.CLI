@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Core.Commands
+﻿namespace AbpTools.AbpHelper.Core.Commands
 {
     public static class CommandConsts
     {

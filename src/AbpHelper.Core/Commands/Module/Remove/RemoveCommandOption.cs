@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Core.Commands.Module.Remove
+﻿namespace AbpTools.AbpHelper.Core.Commands.Module.Remove
 {
     public class RemoveCommandOption : ModuleCommandOption
     {

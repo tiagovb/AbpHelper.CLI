@@ -1,6 +1,6 @@
-﻿using EasyAbp.AbpHelper.Core.Attributes;
+﻿using AbpTools.AbpHelper.Core.Attributes;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Generate.Service
+namespace AbpTools.AbpHelper.Core.Commands.Generate.Service
 {
     public class ServiceCommandOption : GenerateCommandOption
     {

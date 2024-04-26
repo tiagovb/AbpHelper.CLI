@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EasyAbp.AbpHelper.Core.Models;
+using AbpTools.AbpHelper.Core.Models;
 using Elsa.Expressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace EasyAbp.AbpHelper.Core.Steps.Abp.ParseStep
+namespace AbpTools.AbpHelper.Core.Steps.Abp.ParseStep
 {
     public class InterfaceParserStep : BaseParserStep<InterfaceDeclarationSyntax>
     {

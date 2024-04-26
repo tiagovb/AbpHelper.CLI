@@ -3,19 +3,19 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Core.Services;
+using AbpTools.AbpHelper.Core.Services;
 using NuGet.Common;
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 using Serilog;
 using Volo.Abp.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Services
+namespace AbpTools.AbpHelper.Services
 {
     public class CheckUpdateService : ICheckUpdateService, ITransientDependency
     {
         private const string RepoUrl = "https://api.nuget.org/v3/index.json";
-        private const string PackageId = "EasyAbp.AbpHelper";
+        private const string PackageId = "AbpTools.AbpHelper";
 
         public async Task CheckUpdateAsync()
         {

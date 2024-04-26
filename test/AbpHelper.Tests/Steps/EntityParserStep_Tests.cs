@@ -2,9 +2,9 @@
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Core.Models;
-using EasyAbp.AbpHelper.Core.Steps.Abp;
-using EasyAbp.AbpHelper.Core.Steps.Common;
+using AbpTools.AbpHelper.Core.Models;
+using AbpTools.AbpHelper.Core.Steps.Abp;
+using AbpTools.AbpHelper.Core.Steps.Common;
 using Shouldly;
 using Xunit;
 using Xunit.Abstractions;
@@ -97,7 +97,7 @@ namespace Acme.BookStore.Books
         public async Task Parse_Entity_Without_PrimaryKey()
         {
             var code = @"
-namespace Acme.BookStore.EasyAbp.BookStore.UserRoles
+namespace Acme.BookStore.AbpTools.BookStore.UserRoles
 {
     public class UserRole : Entity
     {
@@ -132,8 +132,8 @@ namespace Acme.BookStore.EasyAbp.BookStore.UserRoles
 
                     // Assert
                     var info = ctx.GetVariable<EntityInfo>("EntityInfo");
-                    info.Namespace.ShouldBe("Acme.BookStore.EasyAbp.BookStore.UserRoles");
-                    info.RelativeNamespace.ShouldBe("EasyAbp.BookStore.UserRoles");
+                    info.Namespace.ShouldBe("Acme.BookStore.AbpTools.BookStore.UserRoles");
+                    info.RelativeNamespace.ShouldBe("AbpTools.BookStore.UserRoles");
                     info.NamespaceLastPart.ShouldBe("UserRoles");
                     info.RelativeDirectory.ShouldBe("EasyAbp/BookStore/UserRoles");
                     info.Name.ShouldBe("UserRole");

@@ -1,8 +1,8 @@
-﻿using EasyAbp.AbpHelper.Core.Steps.Common;
+﻿using AbpTools.AbpHelper.Core.Steps.Common;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services;
 
-namespace EasyAbp.AbpHelper.Core.Workflow.Generate.Crud
+namespace AbpTools.AbpHelper.Core.Workflow.Generate.Crud
 {
     public static class TestGenerationWorkflow
     {

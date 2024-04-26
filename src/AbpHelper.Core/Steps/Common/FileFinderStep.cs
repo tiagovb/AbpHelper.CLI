@@ -7,7 +7,7 @@ using Elsa.Results;
 using Elsa.Scripting.JavaScript;
 using Elsa.Services.Models;
 
-namespace EasyAbp.AbpHelper.Core.Steps.Common
+namespace AbpTools.AbpHelper.Core.Steps.Common
 {
     public class FileFinderStep : StepWithOption
     {

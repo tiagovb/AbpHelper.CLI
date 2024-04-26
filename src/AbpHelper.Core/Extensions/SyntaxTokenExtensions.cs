@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace EasyAbp.AbpHelper.Core.Extensions
+namespace AbpTools.AbpHelper.Core.Extensions
 {
     public static class SyntaxTokenExtensions
     {

@@ -1,6 +1,6 @@
-﻿using EasyAbp.AbpHelper.Core.Attributes;
+﻿using AbpTools.AbpHelper.Core.Attributes;
 
-namespace EasyAbp.AbpHelper.Core.Commands.Ef.Migrations.Remove
+namespace AbpTools.AbpHelper.Core.Commands.Ef.Migrations.Remove
 {
     public class RemoveCommandOption : MigrationsCommandOption
     {
